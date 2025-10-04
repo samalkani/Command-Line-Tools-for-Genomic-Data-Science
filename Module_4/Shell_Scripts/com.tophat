@@ -1,0 +1,25 @@
+DATADIR=/media/sf_Command_Line_Tools_for_Genomic_Data_Science/Module_4/Exam/gencommand_proj4
+WORKDIR=/media/sf_Command_Line_Tools_for_Genomic_Data_Science/Module_4/Exam/gencommand_proj4
+ANNOT=/media/sf_Command_Line_Tools_for_Genomic_Data_Science/Module_4/Exam/gencommand_proj4
+ANNOTIDX=/media/sf_Command_Line_Tools_for_Genomic_Data_Science/Module_4/Exam/gencommand_proj4
+BWT2IDX=/media/sf_Command_Line_Tools_for_Genomic_Data_Science/Module_4/Exam/gencommand_proj4
+
+mkdir –o $WORKDIR/Test1
+
+mkdir –o $ANNOT/Annotation
+
+mkdir –o $ANNOTIDX/Transcript
+
+mkdir –o $BWT2IDX/Bowtie-Index
+
+mkdir –o $DATADIR/Datasets
+
+
+
+tophat2 -o $WORKDIR/Test1 -p 10 -max-multihits=10 \
+	-G $ANNOT/Annotation -transciptome-index $ANNOTIDX/Transcript \
+	-r 120 --mate_std-dev 30 \
+	$BWT2IDX/Bowtie-Index \
+	$DATADIR/Datasets1  $DATADIR/Datasets2 
+	
+	

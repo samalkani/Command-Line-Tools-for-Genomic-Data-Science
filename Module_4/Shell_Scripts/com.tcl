@@ -1,0 +1,10 @@
+WORKDIR=/media/sf_Command_Line_Tools_for_Genomic_Data_Science/Module_4/Exam/gencommand_proj4/
+THDIR=/media/sf_Command_Line_Tools_for_Genomic_Data_Science/Module_4/Exam/gencommand_proj4/Tophat/ 
+ANNOT=/media/sf_Command_Line_Tools_for_Genomic_Data_Science/Module_4/Exam/gencommand_proj4/Annotation/allmix_nonpseudo.nonredund.gff3
+
+cuffmerge -g $ANNOT -p 8 -o $WORKDIR/Cuffmerge $WORKDIR/Cuffmerge/GTFs.txt
+
+cuffdiff -o $WORKDIR/cuffdiff -p 10 $WORKDIR/Cuffmerge/merged.gtf \
+         $THDIR/Test1/accepted_hits.bam, $THDIR/Test2/accepted_hits.bam, $THDIR/Test3/accepted_hits.bam \
+         $THDIR/Ctrl1/accepted_hits.bam, $THDIR/Ctrl2/accepted_hits.bam, $THDIR/Ctrl3/accepted_hits.bam
+

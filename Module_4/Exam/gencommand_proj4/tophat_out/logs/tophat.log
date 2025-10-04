@@ -1,0 +1,7 @@
+
+[2025-10-03 18:46:35] Beginning TopHat run (v2.0.14)
+-----------------------------------------------
+[2025-10-03 18:46:35] Checking for Bowtie
+		  Bowtie version:	 2.2.5.0
+[2025-10-03 18:46:35] Checking for Bowtie index files (genome)..
+Error: Could not find Bowtie 2 index files (–o.*.bt2)

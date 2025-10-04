@@ -1,0 +1,156 @@
+Didn’t have the required files for the demonstration so used alternative ones but results are note the same but the commands are
+
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ grep ">" dna2.fasta
+>gi|142022655|gb|EQ086233.1|91 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold, whole genome shotgun sequence
+>gi|142022655|gb|EQ086233.1|304 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold, whole genome shotgun sequence
+>gi|142022655|gb|EQ086233.1|255 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold, whole genome shotgun sequence
+>gi|142022655|gb|EQ086233.1|45 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold, whole genome shotgun sequence
+>gi|142022655|gb|EQ086233.1|396 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold, whole genome shotgun sequence
+>gi|142022655|gb|EQ086233.1|250 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold, whole genome shotgun sequence
+>gi|142022655|gb|EQ086233.1|322 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold, whole genome shotgun sequence
+>gi|142022655|gb|EQ086233.1|88 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold, whole genome shotgun sequence
+>gi|142022655|gb|EQ086233.1|594 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold, whole genome shotgun sequence
+>gi|142022655|gb|EQ086233.1|293 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold, whole genome shotgun sequence
+>gi|142022655|gb|EQ086233.1|75 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold, whole genome shotgun sequence
+>gi|142022655|gb|EQ086233.1|454 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold, whole genome shotgun sequence
+>gi|142022655|gb|EQ086233.1|16 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold, whole genome shotgun sequence
+>gi|142022655|gb|EQ086233.1|584 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold, whole genome shotgun sequence
+>gi|142022655|gb|EQ086233.1|4 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold, whole genome shotgun sequence
+>gi|142022655|gb|EQ086233.1|277 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold, whole genome shotgun sequence
+>gi|142022655|gb|EQ086233.1|346 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold, whole genome shotgun sequence
+>gi|142022655|gb|EQ086233.1|527 marine metagenome JCVI_SCAF_1096627390048 genomic scaffold, whole genome shotgun sequence
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ grep ">" dna2.fasta | wc -l
+18
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ grep -c ">" dna2.fasta
+18
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ cd ..
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ more months1.txt
+january 1       winter
+feburary        2       winter
+march   3       spring
+april   4       spring
+may     5       spring
+june    6       summer
+july    7       summer
+august  8       summer
+september       9       fall
+october 10      fall
+november        11      fall
+december        12      winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f1 months1.txt | more
+january
+feburary
+march
+april
+may
+june
+july
+august
+september
+october
+november
+december
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f3 months1.txt | uniq
+winter
+spring
+summer
+fall
+winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f3 months1.txt | uniq | wc -l
+5
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f3 months1.txt | sort -u
+fall
+spring
+summer
+winter
+winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f3 months1.txt | sort -u | wc -l
+5
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f2 months1.txt | more | wc -l
+12
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f2 months1.txt | sort -u | wc -l
+12
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f1,2 months1.txt | more
+january 1
+feburary        2
+march   3
+april   4
+may     5
+june    6
+july    7
+august  8
+september       9
+october 10
+november        11
+december        12
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f1 months1.txt | more
+january
+feburary
+march
+april
+may
+june
+july
+august
+september
+october
+november
+december
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f1 months1.txt | uniq -c | more
+      1 january
+      1 feburary
+      1 march
+      1 april
+      1 may
+      1 june
+      1 july
+      1 august
+      1 september
+      1 october
+      1 november
+      1 december
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f1 months1.txt | uniq -c | grep " 1 "
+      1 january
+      1 feburary
+      1 march
+      1 april
+      1 may
+      1 june
+      1 july
+      1 august
+      1 september
+      1 october
+      1 november
+      1 december
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f1 months1.txt | uniq -c | grep " 1 " | wc -l
+12
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f1 months1.txt | uniq -c | grep -c " 1 "
+12
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f1 months1.txt | uniq -c | more
+      1 january
+      1 feburary
+      1 march
+      1 april
+      1 may
+      1 june
+      1 july
+      1 august
+      1 september
+      1 october
+      1 november
+      1 december
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f1 months1.txt | uniq -c | grep -v " 2 " (not “ 2 ”)
+      1 january
+      1 feburary
+      1 march
+      1 april
+      1 may
+      1 june
+      1 july
+      1 august
+      1 september
+      1 october
+      1 november
+      1 december
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f1 months1.txt | uniq -c | grep -v " 2 " | wc -l
+12

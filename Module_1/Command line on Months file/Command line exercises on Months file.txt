@@ -1,0 +1,265 @@
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ sort -k 2 months.txt
+january 1 winter
+october 10 fall
+november 11 fall
+december 12 winter
+feburary 2  winter
+march 3 spring
+april 4 spring
+may 5 spring
+june 6 summer
+july 7 summer
+august 8 summer
+september 9 fall
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ sort -k1 months.txt
+april 4 spring
+august 8 summer
+december 12 winter
+feburary 2  winter
+january 1 winter
+july 7 summer
+june 6 summer
+march 3 spring
+may 5 spring
+november 11 fall
+october 10 fall
+september 9 fall
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ sort -k 2n months.txt
+january 1 winter
+feburary 2  winter
+march 3 spring
+april 4 spring
+may 5 spring
+june 6 summer
+july 7 summer
+august 8 summer
+september 9 fall
+october 10 fall
+november 11 fall
+december 12 winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ sort -k 2nr months.txt
+december 12 winter
+november 11 fall
+october 10 fall
+september 9 fall
+august 8 summer
+july 7 summer
+june 6 summer
+may 5 spring
+april 4 spring
+march 3 spring
+feburary 2  winter
+january 1 winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ sort -k 3 months.txt
+feburary 2  winter
+november 11 fall
+october 10 fall
+september 9 fall
+april 4 spring
+march 3 spring
+may 5 spring
+august 8 summer
+july 7 summer
+june 6 summer
+december 12 winter
+january 1 winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ vi months.txt
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ sort -k 3 months.txt
+november 11 fall
+october 10 fall
+september 9 fall
+april 4 spring
+march 3 spring
+may 5 spring
+august 8 summer
+july 7 summer
+june 6 summer
+december 12 winter
+feburary 2 winter
+january 1 winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ sort -k 3 -k 2n months.txt
+(Sort by ascending order by column 3 first and then by column 2)
+september 9 fall
+october 10 fall
+november 11 fall
+march 3 spring
+april 4 spring
+may 5 spring
+june 6 summer
+july 7 summer
+august 8 summer
+january 1 winter
+feburary 2 winter
+december 12 winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ sort -k 3 -k 2rn months.txt
+(Sort by ascending order by column 3 first and then by descending order column 2)
+november 11 fall
+october 10 fall
+september 9 fall
+may 5 spring
+april 4 spring
+march 3 spring
+august 8 summer
+july 7 summer
+june 6 summer
+december 12 winter
+feburary 2 winter
+january 1 winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ sed 's/ /\t/g' months.txt > months1.txt (Change space delimited file into tab delimited file and store in months1.txt file)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ more months1.txt
+january 1       winter
+feburary        2       winter
+march   3       spring
+april   4       spring
+may     5       spring
+june    6       summer
+july    7       summer
+august  8       summer
+september       9       fall
+october 10      fall
+november        11      fall
+december        12      winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f1 months1.txt
+(Display column 1 of tab delimited file by using the cut command)
+january
+feburary
+march
+april
+may
+june
+july
+august
+september
+october
+november
+december
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f1,2 months1.txt
+(Display column 1 & 2 of tab delimited file by using the cut command)
+january 1
+feburary        2
+march   3
+april   4
+may     5
+june    6
+july    7
+august  8
+september       9
+october 10
+november        11
+december        12
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -f1-3 months1.txt
+(Display column ranges 1 – 3 of tab delimited file by using the cut command)
+january 1       winter
+feburary        2       winter
+march   3       spring
+april   4       spring
+may     5       spring
+june    6       summer
+july    7       summer
+august  8       summer
+september       9       fall
+october 10      fall
+november        11      fall
+december        12      winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ sed 's/\t / /g' months.txt > months2.txt (Change tab delimited to space delimited file)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ more months2.txt
+january 1 winter
+feburary 2 winter
+march 3 spring
+april 4 spring
+may 5 spring
+june 6 summer
+july 7 summer
+august 8 summer
+september 9 fall
+october 10 fall
+november 11 fall
+december 12 winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -d ' ' -f1 months2.txt
+(Using the cut command to display the 1st column in a space delimited file)
+january
+feburary
+march
+april
+may
+june
+july
+august
+september
+october
+november
+december
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -d ' ' -f1,2 months2.txt
+(Using the cut command to display the 1st & 2nd column in a space delimited file)
+january 1
+feburary 2
+march 3
+april 4
+may 5
+june 6
+july 7
+august 8
+september 9
+october 10
+november 11
+december 12
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -d ' ' -f1-3 months2.txt
+(Using the cut command to display the range of columns 1- 3 in a space delimited file)
+january 1 winter
+feburary 2 winter
+march 3 spring
+april 4 spring
+may 5 spring
+june 6 summer
+july 7 summer
+august 8 summer
+september 9 fall
+october 10 fall
+november 11 fall
+december 12 winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cut -d ' ' -f3 months2.txt > seasons (Using the cut command to display the 3rd  column in a space delimited file)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ more seasons
+winter
+winter
+spring
+spring
+spring
+summer
+summer
+summer
+fall
+fall
+fall
+winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ sort -u seasons
+(Uniquely sort seasons file)
+fall
+spring
+summer
+winter
+winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ uniq seasons
+(Uniquely sort seasons file)
+winter
+spring
+summer
+fall
+winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ uniq seasons | sort –u
+(Uniquely sort seasons file and the duplicate winter item by using uniq |sort –u command)
+fall
+spring
+summer
+winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ uniq -c seasons
+(Count unique items in list)
+      2 winter
+      3 spring
+      3 summer
+      3 fall
+      1 winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ grep " 12 winter" months.txt (Identify " 12 winter" in months.txt file)
+december 12 winter
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ grep " 7 winter" months.txt (Identify " 7 winter" in months.txt file)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ grep -n " 12 winter" months.txt (Identify " 12 winter" in months.txt file and the line the quoted text is on)
+12:december 12 winter

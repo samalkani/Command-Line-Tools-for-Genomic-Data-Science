@@ -1,0 +1,5 @@
+THDIR=/media/sf_Command_Line_Tools_for_Genomic_Data_Science/Module_4/Exam/gencommand_proj4/Tophat
+WORKDIR=/media/sf_Command_Line_Tools_for_Genomic_Data_Science/Module_4/Exam/gencommand_proj4/Cufflinks
+
+mkdir -p $WORDIR/Test1
+cd $WORDIR/Test1; cufflinks -L BJ-AO22 -p 8 $THDIR/Test1/accepted_hits.bam

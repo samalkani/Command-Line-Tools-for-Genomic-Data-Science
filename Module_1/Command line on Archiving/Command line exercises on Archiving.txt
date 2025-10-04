@@ -1,0 +1,212 @@
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cd apple
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ ls
+Functions_1.py  Functions_3.py     Reading_Data.py   Reading_data_test.py   check_dna.py
+Functions_2.py  Functions_Test.py  Reading_Input.py  Reading_fasta_file.py  upstream1000.fa
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ ls -l upstream1000.fa
+-rwxrwxrwx 1 samalkani samalkani 71126685 Jul 10 15:29 upstream1000.fa
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ gzip upstream1000.fa (gzip file)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ ls
+Functions_1.py  Functions_3.py     Reading_Data.py   Reading_data_test.py   check_dna.py
+Functions_2.py  Functions_Test.py  Reading_Input.py  Reading_fasta_file.py  upstream1000.fa.gz
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ ls -l upstream1000.fa.gz
+-rwxrwxrwx 1 samalkani samalkani 11122945 Jul 10 15:29 upstream1000.fa.gz (7x compression)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ gunzip upstream1000.fa.gz (un-gzip file)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ ls -l
+total 69490
+-rwxrwxrwx 1 samalkani samalkani      539 Jul 10 15:07 Functions_1.py
+-rwxrwxrwx 1 samalkani samalkani     1631 Jul 10 15:07 Functions_2.py
+-rwxrwxrwx 1 samalkani samalkani     3390 Jul 10 15:07 Functions_3.py
+-rwxrwxrwx 1 samalkani samalkani     1787 Jul 10 15:07 Functions_Test.py
+-rwxrwxrwx 1 samalkani samalkani     1335 Jul 10 15:08 Reading_Data.py
+-rwxrwxrwx 1 samalkani samalkani     1592 Jul 10 15:08 Reading_Input.py
+-rwxrwxrwx 1 samalkani samalkani      545 Jul 10 15:08 Reading_data_test.py
+-rwxrwxrwx 1 samalkani samalkani      967 Jul 10 15:08 Reading_fasta_file.py
+-rwxrwxrwx 1 samalkani samalkani     1067 Jul 10 15:09 check_dna.py
+-rwxrwxrwx 1 samalkani samalkani 71126685 Jul 10 15:29 upstream1000.fa (un-gzipped file)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ bzip2 upstream1000.fa (bzip file)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ ls -l upstream1000.fa.bz2
+-rwxrwxrwx 1 samalkani samalkani 13250398 Jul 10 15:29 upstream1000.fa.bz2 (<7x compression)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ bunzip2 upstream1000.fa.bz2 (un bzip file)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ ls -l
+total 69490
+-rwxrwxrwx 1 samalkani samalkani      539 Jul 10 15:07 Functions_1.py
+-rwxrwxrwx 1 samalkani samalkani     1631 Jul 10 15:07 Functions_2.py
+-rwxrwxrwx 1 samalkani samalkani     3390 Jul 10 15:07 Functions_3.py
+-rwxrwxrwx 1 samalkani samalkani     1787 Jul 10 15:07 Functions_Test.py
+-rwxrwxrwx 1 samalkani samalkani     1335 Jul 10 15:08 Reading_Data.py
+-rwxrwxrwx 1 samalkani samalkani     1592 Jul 10 15:08 Reading_Input.py
+-rwxrwxrwx 1 samalkani samalkani      545 Jul 10 15:08 Reading_data_test.py
+-rwxrwxrwx 1 samalkani samalkani      967 Jul 10 15:08 Reading_fasta_file.py
+-rwxrwxrwx 1 samalkani samalkani     1067 Jul 10 15:09 check_dna.py
+-rwxrwxrwx 1 samalkani samalkani 71126685 Jul 10 15:29 upstream1000.fa (un-bzipped file)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ cd ..
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ mv dna.example.fasta apple (move file to apple directory)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ mv dna2.fasta apple (move file to apple directory)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cd apple
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ ls
+Functions_1.py  Functions_3.py     Reading_Data.py   Reading_data_test.py   check_dna.py       dna2.fasta (added to apple directory)
+Functions_2.py  Functions_Test.py  Reading_Input.py  Reading_fasta_file.py  dna.example.fasta (added to apple directory) upstream1000.fa
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ tar -cvf Apple.tar dna.example.fasta  upstream1000.fa dna2.fasta (add 3 files to tar file)
+dna.example.fasta
+upstream1000.fa
+dna2.fasta
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ ls
+Apple.tar (tar file in apple directory)      Functions_3.py     Reading_Input.py       check_dna.py       upstream1000.fa
+Functions_1.py  Functions_Test.py  Reading_data_test.py   dna.example.fasta
+Functions_2.py  Reading_Data.py    Reading_fasta_file.py  dna2.fasta
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ ls apple.tar
+apple.tar (tar file listed)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ ls -l apple.tar
+-rwxrwxrwx 1 samalkani samalkani 71239680 Jul 11 19:55 apple.tar (size of all 3 files in tar file)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ ls -l
+total 139170 (The tar file and the 3 original files in the apple directory)
+-rwxrwxrwx 1 samalkani samalkani 71239680 Jul 11 19:55 Apple.tar
+-rwxrwxrwx 1 samalkani samalkani      539 Jul 10 15:07 Functions_1.py
+-rwxrwxrwx 1 samalkani samalkani     1631 Jul 10 15:07 Functions_2.py
+-rwxrwxrwx 1 samalkani samalkani     3390 Jul 10 15:07 Functions_3.py
+-rwxrwxrwx 1 samalkani samalkani     1787 Jul 10 15:07 Functions_Test.py
+-rwxrwxrwx 1 samalkani samalkani     1335 Jul 10 15:08 Reading_Data.py
+-rwxrwxrwx 1 samalkani samalkani     1592 Jul 10 15:08 Reading_Input.py
+-rwxrwxrwx 1 samalkani samalkani      545 Jul 10 15:08 Reading_data_test.py
+-rwxrwxrwx 1 samalkani samalkani      967 Jul 10 15:08 Reading_fasta_file.py
+-rwxrwxrwx 1 samalkani samalkani     1067 Jul 10 15:09 check_dna.py
+-rwxrwxrwx 1 samalkani samalkani    59633 Jul  9 19:10 dna.example.fasta
+-rwxrwxrwx 1 samalkani samalkani    48593 Jul  9 19:10 dna2.fasta
+-rwxrwxrwx 1 samalkani samalkani 71126685 Jul 10 15:29 upstream1000.fa
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ gzip Apple.tar (gzip the tar file with the 3 original files)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ ls -l
+total 80494
+-rwxrwxrwx 1 samalkani samalkani 11157171 Jul 11 19:55 Apple.tar.gz (tar file & gzipped)
+-rwxrwxrwx 1 samalkani samalkani      539 Jul 10 15:07 Functions_1.py
+-rwxrwxrwx 1 samalkani samalkani     1631 Jul 10 15:07 Functions_2.py
+-rwxrwxrwx 1 samalkani samalkani     3390 Jul 10 15:07 Functions_3.py
+-rwxrwxrwx 1 samalkani samalkani     1787 Jul 10 15:07 Functions_Test.py
+-rwxrwxrwx 1 samalkani samalkani     1335 Jul 10 15:08 Reading_Data.py
+-rwxrwxrwx 1 samalkani samalkani     1592 Jul 10 15:08 Reading_Input.py
+-rwxrwxrwx 1 samalkani samalkani      545 Jul 10 15:08 Reading_data_test.py
+-rwxrwxrwx 1 samalkani samalkani      967 Jul 10 15:08 Reading_fasta_file.py
+-rwxrwxrwx 1 samalkani samalkani     1067 Jul 10 15:09 check_dna.py
+-rwxrwxrwx 1 samalkani samalkani    59633 Jul  9 19:10 dna.example.fasta
+-rwxrwxrwx 1 samalkani samalkani    48593 Jul  9 19:10 dna2.fasta
+-rwxrwxrwx 1 samalkani samalkani 71126685 Jul 10 15:29 upstream1000.fa
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/apple$ cd ..
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ mkdir sandbox (make a new directory)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cp apple/Apple.tar.gz sandbox/ (copy tar.gz file into the new directory)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cd sandbox
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/sandbox$ ls
+Apple.tar.gz (copied tar.gz file in the sandbox directory)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/sandbox$ gunzip Apple.tar.gz (un-gzip the tar file)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/sandbox$ ls -l
+total 69572
+-rwxrwxrwx 1 samalkani samalkani 71239680 Jul 11 20:02 Apple.tar
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/sandbox$ tar -xvf Apple.tar (un-tar file to release the 3 files into the sandbox directory)
+dna.example.fasta
+upstream1000.fa
+dna2.fasta
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/sandbox$ ls
+Apple.tar  dna.example.fasta  dna2.fasta  upstream1000.fa (the tar file + 3 files in sandbox directory)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/sandbox$ rm * (remove all files from sandbox directory)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/sandbox$ ls (files removed)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/sandbox$ pwd
+/mnt/c/Python_Scripts/Spyder_Scripts/sandbox
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/sandbox$ cd ../
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ ls
+ Basic_Python.py              Orchard.txt                     dnautil.py       myseq.fa          processfasta.py
+ Biopython_test.py            Packages_Test.py                fasta_file.txt   myseq1.fa         sandbox
+ Block_Text_Splicer.py        Tuples_Sets___Dictionaries.py   find_donor.py    nlines            seasons
+ Complex_Data_Structures.py   Using_Biopython.py              gc.py            peach            'subtitle (2).txt'
+ Final_Exam.py                apple                           months.txt       peach.txt         test.txt
+ Ifs___Loops.py               apple.sorted.txt                months1.txt      pear
+ Loops_Test.py                apple.txt                       months2.txt      pear.sorted.txt
+ Orchard.1.txt                dna_has_stop.py                 myfile           pear.txt
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ tar -cvf AppleD.tar apple/
+apple/ (tar a whole directory i.e. apple directory)
+apple/Apple.tar.gz
+apple/check_dna.py
+apple/dna.example.fasta
+apple/dna2.fasta
+apple/Functions_1.py
+apple/Functions_2.py
+apple/Functions_3.py
+apple/Functions_Test.py
+apple/Reading_Data.py
+apple/Reading_data_test.py
+apple/Reading_fasta_file.py
+apple/Reading_Input.py
+apple/upstream1000.fa
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ ls -l AppleD.tar
+-rwxrwxrwx 1 samalkani samalkani 82421760 Jul 11 20:09 AppleD.tar (size of the tar file)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ bzip2 AppleD.tar (bzip tar)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ ls -l
+total 23713
+-rwxrwxrwx 1 samalkani samalkani 24224222 Jul 11 20:09  AppleD.tar.bz2 (bzipped tar file)
+-rwxrwxrwx 1 samalkani samalkani      284 Jul  9 19:10  Basic_Python.py
+-rwxrwxrwx 1 samalkani samalkani     2004 Jul  9 19:10  Biopython_test.py
+-rwxrwxrwx 1 samalkani samalkani      242 Jul 10 23:55  Block_Text_Splicer.py
+-rwxrwxrwx 1 samalkani samalkani     2149 Jul  9 19:10  Complex_Data_Structures.py
+-rwxrwxrwx 1 samalkani samalkani     4955 Jul  9 19:10  Final_Exam.py
+-rwxrwxrwx 1 samalkani samalkani     2702 Jul  9 19:10  Ifs___Loops.py
+-rwxrwxrwx 1 samalkani samalkani     2870 Jul  9 19:10  Loops_Test.py
+-rwxrwxrwx 1 samalkani samalkani      101 Jul 11 16:01  Orchard.1.txt
+-rwxrwxrwx 1 samalkani samalkani      141 Jul 11 15:54  Orchard.txt
+-rwxrwxrwx 1 samalkani samalkani     1558 Jul  9 19:10  Packages_Test.py
+-rwxrwxrwx 1 samalkani samalkani     2160 Jul  9 19:10  Tuples_Sets___Dictionaries.py
+-rwxrwxrwx 1 samalkani samalkani     1280 Jul  9 19:10  Using_Biopython.py
+drwxrwxrwx 1 samalkani samalkani      512 Jul 11 19:59  apple
+-rwxrwxrwx 1 samalkani samalkani       21 Jul 11 16:11  apple.sorted.txt
+-rwxrwxrwx 1 samalkani samalkani       21 Jul 11 16:06  apple.txt
+-rwxrwxrwx 1 samalkani samalkani      348 Jul  9 19:10  dna_has_stop.py
+-rwxrwxrwx 1 samalkani samalkani      854 Jul  9 19:10  dnautil.py
+-rwxrwxrwx 1 samalkani samalkani      141 Jul  9 19:10  fasta_file.txt
+-rwxrwxrwx 1 samalkani samalkani      354 Jul  9 19:10  find_donor.py
+-rwxrwxrwx 1 samalkani samalkani      552 Jul  9 19:10  gc.py
+-rwxrwxrwx 1 samalkani samalkani      201 Jul 10 22:57  months.txt
+-rwxrwxrwx 1 samalkani samalkani      201 Jul 10 22:58  months1.txt
+-rwxrwxrwx 1 samalkani samalkani      201 Jul 10 23:06  months2.txt
+-rwxrwxrwx 1 samalkani samalkani       92 Jul  9 19:10  myfile
+-rwxrwxrwx 1 samalkani samalkani       96 Jul  9 19:10  myseq.fa
+-rwxrwxrwx 1 samalkani samalkani      223 Jul  9 19:10  myseq1.fa
+-rwxrwxrwx 1 samalkani samalkani       30 Jul 10 20:32  nlines
+drwxrwxrwx 1 samalkani samalkani      512 Jul 10 17:46  peach
+-rwxrwxrwx 1 samalkani samalkani        9 Jul 11 16:07  peach.txt
+drwxrwxrwx 1 samalkani samalkani      512 Jul 10 15:14  pear
+-rwxrwxrwx 1 samalkani samalkani       22 Jul 11 16:12  pear.sorted.txt
+-rwxrwxrwx 1 samalkani samalkani       22 Jul 11 16:06  pear.txt
+-rwxrwxrwx 1 samalkani samalkani     1947 Jul  9 19:10  processfasta.py
+drwxrwxrwx 1 samalkani samalkani      512 Jul 11 20:06  sandbox
+-rwxrwxrwx 1 samalkani samalkani       89 Jul 10 23:10  seasons
+-rwxrwxrwx 1 samalkani samalkani     7220 Jul  9 19:10 'subtitle (2).txt'
+-rwxrwxrwx 1 samalkani samalkani       28 Jul  9 19:10  test.txt
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ mv AppleD.tar.bz2 sandbox (move bzipped file into sandbox directory)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts$ cd sandbox/
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/sandbox$ ls
+AppleD.tar.bz2 (moved bzipped file)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/sandbox$ bunzip2 AppleD.tar.bz2 (un-bzip file)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/sandbox$ ls
+AppleD.tar (un-bzipped file)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/sandbox$ tar -xvf AppleD.tar (un-tar file to release files into the sandbox directory)
+apple/
+apple/Apple.tar.gz
+apple/check_dna.py
+apple/dna.example.fasta
+apple/dna2.fasta
+apple/Functions_1.py
+apple/Functions_2.py
+apple/Functions_3.py
+apple/Functions_Test.py
+apple/Reading_Data.py
+apple/Reading_data_test.py
+apple/Reading_fasta_file.py
+apple/Reading_Input.py
+apple/upstream1000.fa
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/sandbox$ ls
+AppleD.tar  apple (The original tar file and the apple directory in the sandbox directory)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/sandbox$ ls apple (list apple directory)
+Apple.tar.gz    Functions_3.py     Reading_Input.py       check_dna.py       upstream1000.fa
+Functions_1.py  Functions_Test.py  Reading_data_test.py   dna.example.fasta
+Functions_2.py  Reading_Data.py    Reading_fasta_file.py  dna2.fasta
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/sandbox$ gzip apple/upstream1000.fa (gzip file)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/sandbox$ ls apple/upstream1000.fa.gz
+apple/upstream1000.fa.gz (gzipped file)
+samalkani@WINDELL-NURVN2D:/mnt/c/Python_Scripts/Spyder_Scripts/sandbox$ more apple/upstream1000.fa.gz (cannot view gzipped file with more command it’s a binary file)
+ZbgOW¬_[rd{~sa_>X_z����=}?X~|Bozc-c9gM¬Й^L}GAW��|¬-W}`_/|

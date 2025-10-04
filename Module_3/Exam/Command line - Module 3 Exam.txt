@@ -1,0 +1,168 @@
+Unzipping and displaying the files
+[guest@centos6 Exam]$ ls
+Module_1  Module_2
+[guest@centos6 Exam]$ mkdir Module_3
+[guest@centos6 Exam]$ ls
+Module_1  Module_2  Module_3
+[guest@centos6 Exam]$ cd ..
+[guest@centos6 sf_Spyder_Scripts]$ cp gencommand_proj3_data.tar.gz Exam/Module_3
+[guest@centos6 sf_Spyder_Scripts]$ cd Exam/Module_3
+[guest@centos6 Module_3]$ ls
+gencommand_proj3_data.tar.gz
+[guest@centos6 Module_3]$ gunzip gencommand_proj3_data.tar.gz
+[guest@centos6 Module_3]$ ls -l
+total 134912
+-rwxrwx---. 1 root vboxsf 138147840 Jul 19 12:31 gencommand_proj3_data.tar
+[guest@centos6 Module_3]$ tar -xvf gencommand_proj3_data.tar
+wu_0.v7.fas
+wu_0_A_wgs.fastq
+[guest@centos6 Module_3]$ ls -lt
+total 269824
+-rwxrwx---. 1 root vboxsf 138147840 Jul 19 12:31 gencommand_proj3_data.tar
+-rwxrwx---. 1 root vboxsf  18433955 Jul 23  2015 wu_0_A_wgs.fastq
+-rwxrwx---. 1 root vboxsf 119710672 Sep  5  2010 wu_0.v7.fas
+Listing the files in the directory
+[guest@centos6 Module_3]$ ls
+gencommand_proj3_data.tar  logs  wu_0  wu_0_A_wgs.fastq  wu_0.v7.fas
+Making directory for the Indexing files to be housed
+[guest@centos6 Module_3]$ mkdir wu_0
+Indexing the Genome file-
+[guest@centos6 Module_3]$ ls
+Displaying index files
+ [guest@centos6 Module_3]$ cd wu_0
+[guest@centos6 wu_0]$ ls
+wu_0.1.bt2  wu_0.2.bt2  wu_0.3.bt2  wu_0.4.bt2  wu_0.rev.1.bt2  wu_0.rev.2.bt2
+
+Question 1 - How many sequences are there in the genome?
+ [guest@centos6 Module_3]$ grep ">" wu_0.v7.fas | wc -l
+7
+
+Question 2 - What was the name of the third sequence in the genome file? Give the name only, without the “>” sign.
+[guest@centos6 Module_3]$ grep ">" wu_0.v7.fas
+>Chr1
+>Chr2
+>Chr3
+>Chr4
+>Chr5
+>chloroplast
+>mitochondria
+Chr3
+Question 3 - What is the name of the last sequence in the genome file? Give the name only, without the “>” sign
+Mitochondria (see Question 2)
+Question 4 – How many index files did the operation create?
+[guest@centos6 Module_3]$ cd wu_0
+[guest@centos6 wu_0]$ ls -lt
+total 172360
+-rwxrwx---. 1 root vboxsf 43946355 Jul 21 16:58 wu_0.rev.1.bt2
+-rwxrwx---. 1 root vboxsf 29385224 Jul 21 16:58 wu_0.rev.2.bt2
+-rwxrwx---. 1 root vboxsf 43946355 Jul 21 16:57 wu_0.1.bt2
+-rwxrwx---. 1 root vboxsf 29385224 Jul 21 16:57 wu_0.2.bt2
+-rwxrwx---. 1 root vboxsf   428615 Jul 21 16:55 wu_0.3.bt2
+-rwxrwx---. 1 root vboxsf 29385219 Jul 21 16:55 wu_0.4.bt2
+6
+
+Question 5 – What is the 3-character extension for the index files created?
+bt2 (see question 4)
+
+Question 6 – How many reads were in the original fastq file?
+[guest@centos6 Module_3]$ wc -l wu_0_A_wgs.fastq
+589416 wu_0_A_wgs.fastq (589416 lines)
+147354 reads (589416 / 4 (4 lines per read in a fastq file))
+
+Question 7 – How many matches (alignments) were reported for the original (full-match) setting? Exclude the lines in the file containing unmapped reads.
+[guest@centos6 Module_3]$ bowtie2 -p 4 -x /media/sf_Spyder_Scripts/Exam/Module_3/wu_0/wu_0 wu_0_A_wgs.fastq -S wu_0.bt2.sam
+147354 reads; of these:
+  147354 (100.00%) were unpaired; of these:
+    9635 (6.54%) aligned 0 times
+    93780 (63.64%) aligned exactly 1 time
+    43939 (29.82%) aligned >1 times
+93.46% overall alignment rate
+Overall number of alignments 93780 + 43939 = 137719
+
+Question 8 - How many matches (alignments) were reported with the local-match setting? Exclude lines in the file containing unmapped reads.
+[guest@centos6 Module_3]$ bowtie2 -p 4 --local -x /media/sf_Spyder_Scripts/Exam/Module_3/wu_0/wu_0 wu_0_A_wgs.fastq -S wu_0.local.bt2.sam
+147354 reads; of these:
+  147354 (100.00%) were unpaired; of these:
+    6310 (4.28%) aligned 0 times
+    84939 (57.64%) aligned exactly 1 time
+    56105 (38.07%) aligned >1 times
+95.72% overall alignment rate
+Overall number of alignments 84939 + 56105 = 141044
+
+Question 9 – How many reads were mapped in the scenario in Question 7?
+93780 + 43939 = 137719
+(exact alignment + aligned > 1 partial alignments or mappings)
+
+Question 10 – How many reads were mapped in the scenario in Question 8?
+84939 + 56105 = 141044
+(exact alignment + aligned > 1 partial alignments or mappings)
+
+Question 11 - How many reads had multiple matches in the scenario in Question 7? You can find this in the bowtie2 summary; note that by default bowtie2 only reports the best match for each read.
+43939
+
+Question 12 - How many reads had multiple matches in the scenario in Question 8? Use the format above. You can find this in the bowtie2 summary; note that by default bowtie2 only reports the best match for each read.
+56105
+
+Question 13 - How many alignments contained insertions and/or deletions, in the scenario in Question 7?
+[guest@centos6 Module_3]$ cat wu_0.bt2.sam | cut -f6 | grep "I" | wc -l
+1429
+[guest@centos6 Module_3]$ cat wu_0.bt2.sam | cut -f6 | grep "D" | wc -l
+1395
+[guest@centos6 Module_3]$ cat wu_0.bt2.sam | cut -f6 | grep "I" | grep "D" | wc -l
+42
+(1429 + 1395) – 42 = 2782 Insertions and / or deletions
+Question 14 - How many alignments contained insertions and/or deletions, in the scenario in Question 8?
+[guest@centos6 Module_3]$ cat wu_0.local.bt2.sam | cut -f6 | grep "I" | wc -l
+1223
+[guest@centos6 Module_3]$ cat wu_0.local.bt2.sam | cut -f6 | grep "D" | wc -l
+1476
+[guest@centos6 Module_3]$ cat wu_0.local.bt2.sam | cut -f6 | grep "D" | grep "I" | wc -l
+85
+(1223 + 1476) – 85 = 2614 Insertions and / or deletions
+Question 15 – How many entries were reported for Chr3
+Convert SAM to BAM format
+samtools view -bT wu_0.v7.fas wu_0.bt2.sam > wu_0.bt2.bam
+Sort BAM file (cannot do this software crashes)
+samtools sort wu_0.bt2.bam -o wu_0.bt2.sorted.bam
+Index sorted BAM file (cannot do this because I cannot sort the file)
+samtools index wu_0.bt2.sorted.bam
+Use mpileup command to find candidates (cannot do this because I cannot sort the file)
+samtools mpileup -uv -f wu_0.v7.fas wu_0.bt2.sorted.bam > wu_0.vcf
+Count the candidates in Chr3 only which is column 1 of the resultant vcf file (cannot do this because I cannot sort the file)
+cat wu_0.vcf | cut -f1 | grep "Chr3" | wc –l
+360295
+Question 16 - How many entries have ‘A as the corresponding genome letter’
+cat wu_0.vcf | cut -f4 | grep "A"' | wc –l
+1150985
+Question 17 - How many entries have exactly 20 supporting reads?
+cat wu_0.vcf | cut –f8 | grep "DP=20" | wc –l
+1816sam
+Question 18 – How many entries represent indels?
+cat wu_0.vcf | cut –f8 | grep "INDEL" | wc –l
+1972
+Question 19 – How many entries are reported for position 175672 on Chr1?
+cat wu_0.vcf | cut –f1,2 | grep "Chr1" | grep “175672” | wc –l
+2
+Question 20 – How many variants are called on Chr3
+Use samtools mpileup command together with the genome file wu_0.v7.fas and the sorted index file for the genome wu_0.bt2.sorted.bam to produce compressed bcf file wu_0.bcf for variant calling with bcftools.
+samtools mpileup –g –f wu_0.v7.fas wu_0.bt2.sorted.bam> wu_0.bcf.
+[mpileup] 1 samples in 1 input files
+<mpileup> Set max per-file depth to 8000
+Use bcftools call to perform variant calling of the compressed bcf file just created.
+bcftools call –v –m –O z –o sample.vcf.gz wu_0.bcf
+Use zcat command to scan compressed vcf.gz file created to find out the number of variants in Chr3
+zcat < wu_0.vcf.gz | cut –f1 | grep “Chr3” | wc –l
+398
+Question 21 – How many variants represent an A -> T SNP? If useful, you can use ‘grep -P’ to allow spaces in the search term
+zcat < wu_0.vcf.gz | cut -f4,5 | awk '$1 == "A" && $2 =="T"' | wc –l
+392
+Question 22 – How many entries are indels?
+zcat < wu_0.vcf.gz | cut -f8 | grep "INDEL" | wc –l
+320
+Question 23 – How many entries have precisely 20 supporting reads (read depth)?
+zcat < wu_0.vcf.gz | cut -f8 | grep "DP=20" | wc -l 
+2
+Question 24 - What type of variant (i.e., SNP or INDEL) is called at position 11937923 on Chr3?
+zcat < wu_0.vcf.gz | grep "Chr3" | awk '$2 == "11937923"'
+DP=20;VDB=0.0587288;SGB=-0.556411;RPB=0.639909;MQB=0.931063;BQB=0.972484;MQ0F=0;ICB=1;HOB=0.5;AC=1;AN=2;DP4=16,0,4,0;MQ=39 GT:PL 0/1:48,0,137
+SNP

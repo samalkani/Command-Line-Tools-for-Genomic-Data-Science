@@ -1,0 +1,1 @@
+/usr/local/bin/tophat –o Tophat/Day8/ athal/athal.1.bt2 athal/athal.2.bt2 athal/athal.3.bt2 athal/athal.4.bt2 athal/athal.rev.1.bt2 athal/athal.rev.2.bt2 Day8.fastq

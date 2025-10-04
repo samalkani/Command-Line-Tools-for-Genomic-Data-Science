@@ -1,0 +1,3 @@
+nohup: ignoring input
+Pseudo-terminal will not be allocated because stdin is not a terminal.
+ssh: Could not resolve hostname com.cufflinks: Name or service not known
